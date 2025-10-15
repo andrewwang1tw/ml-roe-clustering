@@ -3,16 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ml clustering</title>
+    <title>ML Clustering - 台股</title>
+    
+    <style>
+        /* 讓頁面內容置中，並設定一個合理的寬度 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9; /* 淺灰色背景 */
+            color: #333;
+            text-align: center; /* 內文置中 */
+        }
+
+        /* 限制內容顯示的寬度，讓排版更舒適 */
+        .container {
+            max-width: 1200px; /* 設定頁面最大寬度 */
+            margin: 0 auto; /* 置中容器 */
+            padding: 40px 20px;
+            background-color: #ffffff; /* 白色內容區塊 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 增加陰影，更有層次感 */
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #0056b3; /* 標題顏色 */
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* 圖片樣式：確保圖片響應式且置中顯示 */
+        img {
+            max-width: 100%; /* 圖片寬度不超過父容器 */
+            height: auto;
+            display: block; /* 移除圖片底部的空間 */
+            margin: 20px auto; /* 讓圖片上下有間距並置中 */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-
-    <h1>Machine Learning - 台股 clustering </h1>
-
-    <img src="img/ml-roe-clustering.png" alt="" width="1500">
-
-    <img src="img/ml-roe-clustering-1.png" alt="" width="1500">
-
+    
+    <div class="container">
+        <h1>Machine Learning - 台股 Clustering 分析</h1>
+        
+        <h2>圖 1：依據 ROE 分群結果</h2>
+        <img src="img/ml-roe-clustering.png" alt="機器學習 ROE 分群圖" width="1500">
+        
+        <h2>圖 2：分群結果細節</h2>
+        <img src="img/ml-roe-clustering-1.png" alt="機器學習 ROE 分群結果細節圖" width="1500">
+        
+        <p>（新增一些文字說明這些圖表的意義，例如您使用了哪種演算法、分了幾群。）</p>
+    </div>
 
 </body>
 </html>
