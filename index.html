@@ -3,36 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ML Clustering - 台股分析報告 | 機器學習 x ROE</title>
+    <title>ML Clustering - 台股分析報告</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
-    <style>
-        /* 讓圖片能填滿容器寬度，保持響應性 */
-        article img {
-            max-width: 100%;
-            height: auto;
-            display: block; /* 移除圖片底部的額外空間 */
-            margin: 1rem auto; /* 圖片上下留白 */
-            border-radius: var(--border-radius); /* 讓圖片邊角圓滑一點 */
-        }
-        /* 讓目錄列表更簡潔 */
-        .toc-list {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 0.5rem;
-        }
-        .toc-list li {
-            display: inline-block;
-            margin-right: 1rem;
-        }
-        /* 調整 iframe 高度，確保 Streamlit App 有足夠空間 */
-        .streamlit-iframe {
-            height: 950px; /* 增加高度，避免過多捲軸 */
-            width: 100%;
-            border: 1px solid var(--pico-color-border); /* 加上輕微邊框 */
-            border-radius: var(--border-radius);
-            margin-bottom: 2rem;
-        }
-    </style>
 </head>
 <body>
 
@@ -40,121 +12,90 @@
         
         <article>
             <h1>📈 Machine Learning - 台股 Clustering 分析報告</h1>
-            <p>本報告展示了利用機器學習技術對台灣股票市場進行分群的初步結果。            
-                分析基於 2022-2024 近 3 年的財務與股價數據，選取了以下 <strong>19 個特徵</strong>進行無監督式分群：
-                <code>ROE</code>, <code>EPS</code>, <code>FCF</code>, <code>毛利率</code>, <code>營業利益率</code>, <code>純益率</code>, <code>現金殖利率</code>, <code>高登</code>, <code>總資產周轉率</code>, <code>盈餘成長率</code>, <code>營收年成長率</code>, <code>PBR</code>, <code>PER</code>, <code>每股淨值</code>, <code>權益乘數</code>, <code>股本億元</code>, <code>平均價</code>, <code>股價標準差</code>, <code>股價變異數</code>。
-            </p>
-            <img src="img/ml-clustering.png" alt="機器學習分群總覽圖"> 
+            <p>本報告展示了利用機器學習技術對台灣股票市場進行分群的初步結果。
+            基於 2022-2024 近3年 
+            ROE, EPS, FCF, 毛利率, 營業利益率, 純益率, 現金殖利率, 高登, 總資產周轉率, 盈餘成長率, 營收年成長率, PBR, PER, 每股淨值, 權益乘數, 股本億元, 平均價, 股價標準差, 股價變異數 
+            等 19 個特徵進行分群。</p>
         </article>
 
-        
-        <nav aria-label="目錄">
-            <h2>報告內容快速導覽</h2>
-            <ul class="toc-list">
-                <li><a href="#section-overview">總覽與分群結果</a></li>
-                <li><a href="#section-detail">分群細節分析</a></li>
-                <li><a href="#section-app">Streamlit 互動應用</a></li>
-                <li><a href="#section-method">模型方法與驗證</a></li>
-            </ul>
-        </nav>
-
-        <hr>
-
-        <hgroup id="section-overview">
-            <h2>分群結果總覽與解釋</h2>
-            <p class="secondary">透過機器學習，將台股劃分為數個具備不同財務特徵的群組。</p>
-        </hgroup>
+        <article>
+            <img src="img/ml-clustering.png" alt="機器學習分群圖"> 
+        </article>
         
         <article>
-            <h2><a id="圖1">圖1</a>: 分群總覽</h2> 
-            <img src="img/ml-clustering-1.png" alt="分群總覽圖"> 
-            <p>本圖展示了模型識別出的主要群組及其在特徵空間上的分佈特性，可見市場存在明顯的異質性。</p>
+            <h2>圖1: 分群總覽</h2>            
+            <img src="img/ml-clustering-1.png" alt="機器學習分群圖">            
+            <p>第一張圖展示了模型識別出的主要群組及其分佈特性，可見市場存在明顯的異質性。</p>
         </article>
 
         <article>
-            <h2><a id="圖2">圖2</a>: AI 解釋分群總覽</h2>
-            <img src="img/clustering-summary-ai.png" alt="AI模型對分群結果的解釋圖"> 
-            <p>本圖是透過 AI 模型對分群結果進行的解讀，幫助理解每個群組背後的投資邏輯和財務意義。</p>
-        </article>
-        
-        <hgroup id="section-detail" style="padding-top: 2rem;">
-            <h2>分群細節分析</h2>
-            <p class="secondary">深入探討特定群組的財務指標平均值，幫助投資者建立群組畫像。</p>
-        </hgroup>
-
-        <article>
-            <h2><a id="圖3">圖3</a> : 群組 3 結果細節</h2>
-            <img src="img/clustering-3.png" alt="群組 3 的財務指標平均值圖">
-            <p>圖 3 呈現了 **群組 3** 的財務指標平均值，通常代表某種特定的投資風格或體質特徵（例如：高成長或高殖利率）。</p>
+            <h2>圖2: AI 解釋分群總覽</h2>    
+            <img src="img/clustering-summary-ai.png" alt="機器學習分群圖">  
+            <p>第二張圖 AI 解釋 模型識別出的主要群組及其分佈特性。</p>
         </article>
 
         <article>
-            <h2><a id="圖4">圖4</a> : 群組 1 結果細節</h2>
-            <img src="img/clustering-1.png" alt="群組 1 的財務指標平均值圖">
-            <p>圖 4 呈現了 **群組 1** 的財務指標平均值，與其他群組進行對比，可以發現其獨特的市場定位。</p>
+            <h2>圖3 : 分群 3 結果細節</h2>
+            <img src="img/clustering-3.png" alt="機器學習 ROE 分群結果細節圖">
+            <p>第三張圖 群組 3 的財務指標平均值。</p>
         </article>
 
-        <hgroup id="section-app" style="padding-top: 2rem;">
-            <h2>🖥️ 台股分群 - Streamlit 互動應用程式</h2> 
-            <p class="secondary">您可以直接在下方與模型進行互動，調整參數或查看即時分析。</p>
-        </hgroup>
+        <article>
+            <h2>圖4 : 分群 1 結果細節</h2>
+            <img src="img/clustering-1.png" alt="機器學習 ROE 分群結果細節圖">
+            <p>第四張圖 群組 1 的財務指標平均值。</p>
+        </article>
 
-        <article style="padding: 0;">
+        <article>
+            <h1>📈 台股分群 - Streamlift Web app</h1>           
+        </article>
+
+        <article>
             <iframe
                 src="https://ml-roe-clustering.streamlit.app/?embed=true"
-                class="streamlit-iframe"
-                title="ML ROE Clustering App - Interactive"
-            >
-                <p>您的瀏覽器不支援 iFrames，請直接訪問 <a href="https://ml-roe-clustering.streamlit.app/" target="_blank">Streamlit 應用程式連結</a>。</p>
+                style="height: 800px; width: 100%; border: none;"
+                title="ML ROE Clustering App"
+                >
+                <p>您的瀏覽器不支援 iFrames。</p>
             </iframe>
         </article>
 
 
-        <hgroup id="section-method" style="padding-top: 2rem;">
-            <h2>模型方法與驗證</h2>
-            <p class="secondary">展示模型在特徵工程、參數選擇和維度分析上的決策依據。</p>
-        </hgroup>
-
         <article>
-            <h2><a id="圖5">圖5</a> : 主成分分析 (Principal Component Analysis, PCA) - 特徵影響力</h2>
-            <img src="img/clustering-pca.png" alt="主成分分析">   
+            <h2>圖5 : 主成分分析 (Principal Component Analysis, PCA)</h2>
+            <img src="img/clustering-pca.png" alt="主成分分析">   
             <br />
-            <img src="img/clustering-pca-ai-2.png" alt="主成分分析 AI 解釋"> 
+            <img src="img/clustering-pca-ai-2.png" alt="主成分分析">            
         </article>
 
         <article>
-            <h2><a id="圖6">圖6</a> : 肘部法則 (Elbow Method) - 決定最佳 K 值</h2>
+            <h2>圖6 : Elbow Method (K值)</h2>
             <img src="img/clustering-elbow.png" alt="Elbow Method (K值)"> 
             <br />
-            <img src="img/clustering-elbow-ai-2.png" alt="Elbow Method AI 解釋">
+            <img src="img/clustering-elbow-ai-2.png" alt="Elbow Method (K值)">            
         </article>
 
         <article>
-            <h2><a id="圖7">圖7</a> : 主成分分析 (PCA-2D) - 數據可視化</h2>
-            <img src="img/clustering-pca-2d.png" alt="PCA-2D 數據投影">
+            <h2>圖7 : 主成分分析 (PCA-2D)</h2>
+            <img src="img/clustering-pca-2d.png" alt="PCA-2D">            
         </article>
 
         <article>
-            <h2><a id="圖8">圖8</a> : 主成分分析 (PCA-3D) - 數據立體可視化</h2>
-            <img src="img/clustering-pca-3d.png" alt="PCA-3D 數據投影">
+            <h2>圖8 : 主成分分析 (PCA-3D)</h2>
+            <img src="img/clustering-pca-3d.png" alt="PCA-3D">            
         </article>
 
         <article>
-            <h2><a id="圖9">圖9</a> : 特徵相關分析/矩陣</h2>
-            <img src="img/clustering-corelation.png" alt="特徵相關分析矩陣">
+            <h2>圖9 : 相關分析/矩陣</h2>
+            <img src="img/clustering-corelation.png" alt="相關分析/矩陣">            
         </article>
 
         <article>
-            <h2><a id="圖10">圖10</a> : 原始特徵資料分佈</h2>
-            <img src="img/clustering-raw-data.png" alt="原始特徵資料分佈">
+            <h2>圖10 : 原始特徵資料</h2>
+            <img src="img/clustering-raw-data.png" alt="原始特徵資料">            
         </article>
 
-        <footer>
-            <p style="text-align: center;">
-                <small>資料來源：公開資訊觀測站</small><br>
-                <small>分析時間：2025 Q3</small>
-            </p>
-        </footer>
+        <p style="text-align: center;"><small>資料來源：公開資訊觀測站，分析時間：2025 Q3</small></p>
 
     </main>
 
