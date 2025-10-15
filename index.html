@@ -12,25 +12,35 @@
         
         <article>
             <h1>📈 Machine Learning - 台股 Clustering 分析報告</h1>
-            <p>本報告展示了利用機器學習技術對台灣股票市場進行分群的初步結果。核心指標基於 ROE（股東權益報酬率）進行設計。</p>
+            <p>本報告展示了利用機器學習技術對台灣股票市場進行分群的初步結果。基於 ROE（股東權益報酬率）,EPS,FCF,毛利率,營業利益率,純益率,現金殖利率,高登,總資產周轉率,盈餘成長率,營收年成長率,PBR,PER,每股淨值,權益乘數,股本億元,平均價,股價標準差,股價變異數 等 19個 Feature 進行分群。</p>
         </article>
 
         <article>
-            <img src="img/ml-roe-clustering.png" alt="機器學習 ROE 分群圖"> 
+            <img src="img/ml-roe-clustering.png" alt="機器學習分群圖"> 
         </article>
         
         <article>
-            <h2>圖 1：依據 ROE 分群總覽</h2>
-            
-            <img src="img/ml-roe-clustering-1.png" alt="機器學習 ROE 分群圖">
-            
+            <h2>圖1: 分群總覽</h2>            
+            <img src="img/ml-roe-clustering-1.png" alt="機器學習分群圖">            
             <p>第一張圖展示了模型識別出的主要群組及其分佈特性，可見市場存在明顯的異質性。</p>
         </article>
 
         <article>
-            <h2>圖 2：分群結果細節</h2>
-            <img src="img/ml-roe-clustering-2.png" alt="機器學習 ROE 分群結果細節圖">
-            <p>第二張圖深入剖析了各群組的財務指標平均值，有助於投資者快速理解每類股票的投資風格與風險特徵。</p>
+            <h2>圖2: AI 解釋分群總覽</h2>    
+            <img src="img/clustering-summary.png" alt="機器學習分群圖">  
+            <p>第二張圖 AI 解釋 模型識別出的主要群組及其分佈特性。</p>
+        </article>
+
+        <article>
+            <h2>圖3 : 分群 3 結果細節</h2>
+            <img src="img/clustering-3.png" alt="機器學習 ROE 分群結果細節圖">
+            <p>第三張圖 群組 3 的財務指標平均值。</p>
+        </article>
+
+        <article>
+            <h2>圖4 : 分群 1 結果細節</h2>
+            <img src="img/clustering-1.png" alt="機器學習 ROE 分群結果細節圖">
+            <p>第三張圖 群組 1 的財務指標平均值。</p>
         </article>
 
         <p style="text-align: center;"><small>資料來源：公開資訊觀測站，分析時間：2025 Q3</small></p>
