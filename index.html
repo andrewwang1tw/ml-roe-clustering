@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ML Clustering - 台股分析報告</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+        <style>
+        /* 讓圖片能填滿容器寬度，保持響應性 */
+        article img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* 移除圖片底部的額外空間 */
+            margin: 1rem auto; /* 圖片上下留白 */
+            border-radius: var(--border-radius); /* 讓圖片邊角圓滑一點 */
+        }
+        /* 讓目錄列表更簡潔 */
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
+        }
+        .toc-list li {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        /* 調整 iframe 高度，確保 Streamlit App 有足夠空間 */
+        .streamlit-iframe {
+            height: 950px; /* 增加高度，避免過多捲軸 */
+            width: 100%;
+            border: 1px solid var(--pico-color-border); /* 加上輕微邊框 */
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 <body>
 
@@ -52,8 +80,8 @@
 
         <article>
             <iframe
-                src="https://ml-roe-clustering.streamlit.app/?embed=true"
-                style="height: 800px; width: 100%; border: none;"
+                src="https://ml-roe-clustering.streamlit.app/?embed=true"  
+                class="streamlit-iframe"
                 title="ML ROE Clustering App"
                 >
                 <p>您的瀏覽器不支援 iFrames。</p>
